@@ -1,5 +1,6 @@
 import {useNavigate} from "react-router-dom";
 import { CiWarning } from "react-icons/ci";
+import Button from "./Button";
 
 const ErrorComponent = ({message,redirectUri}) => {
     const navigate = useNavigate()
@@ -7,7 +8,7 @@ const ErrorComponent = ({message,redirectUri}) => {
         <div className="flex justify-center items-center gap-8 flex-col">
             <CiWarning size={100} />
             <p>{message}</p>
-            <button onClick={() => navigate(redirectUri)} className={"appearance-none bg-purple-400 p-2 rounded-lg text-white"}>Go back</button>
+            <Button onClick={() => navigate(redirectUri)} label={"Go back"}></Button>
         </div>
     )
 }
