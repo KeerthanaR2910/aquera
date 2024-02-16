@@ -7,8 +7,8 @@ function App() {
   return (
       <Router>
         <Routes>
-          <Route path="/user" exact element={<UserProfile />} />
-          <Route path="/repositories" exact element={<RepositoryList />} />
+          <Route path="/user/:username" exact element={<UserProfile />} />
+          <Route path="/user/:username/repositories" exact element={<RepositoryList />} />
         </Routes>
       </Router>
   );

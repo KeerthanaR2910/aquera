@@ -1,7 +1,11 @@
+import {useParams} from "react-router-dom";
+
 const RepositoryList = () => {
+    const {username} = useParams();
     return (
         <div>
-            RepositoryList
+            RepositoryList for
+            {username}
         </div>
     )
 }
