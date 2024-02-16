@@ -5,7 +5,7 @@ import ErrorComponent from "../components/ErrorComponent";
 import Repository from "../components/Repository";
 import Header from "../components/Header";
 import PaginationFooter from "../components/PaginationFooter";
-import { useCurrentPage} from "../utils/useCurrentPage";
+import {useCurrentPage} from "../utils/useCurrentPage";
 
 const Repositories = () => {
     const {username} = useParams();
@@ -13,12 +13,12 @@ const Repositories = () => {
     const [error, setError] = useState();
     const query = useCurrentPage();
     const page = +query.get("page")
-    const currentPage =  (page && page !== 0) ? page : 1
+    const currentPage = (page && page !== 0) ? page : 1
 
     useEffect(() => {
-        fetchRepositories(username,currentPage)
+        fetchRepositories(username, currentPage)
             .then(({data}) => {
-                console.log({data,currentPage})
+                console.log({data, currentPage})
                 if (data.length === 0) {
                     setError({
                         message: 'Page Not Found. Go back to the first page',
@@ -26,7 +26,7 @@ const Repositories = () => {
                     })
                 } else {
                     setRepositories(data)
-                    if(error){
+                    if (error) {
                         setError(undefined);
                     }
                 }
@@ -38,19 +38,22 @@ const Repositories = () => {
                 })
                 console.log(error)
             });
-    }, [username,currentPage]);
+    }, [username, currentPage]);
 
-    if(!repositories){
+    if (!repositories) {
         return <p>Loading...</p>
     }
 
     return (
         <div>
             <Header label='RepositoryList'/>
-            {error ? <ErrorComponent {...error}/> : (<div className="flex flex-col gap-2 items-center"> {repositories.map((repository) => {
-                return <Repository key={repository.id} {...repository}/>
-            })}</div>)}
-            <PaginationFooter currentPage={currentPage} baseUri={`/user/${username}/repositories`}/>
+            {error ? <ErrorComponent {...error}/> : (<div>
+                <div className="flex flex-col gap-2 items-center"> {repositories.map((repository) => {
+                    return <Repository key={repository.id} {...repository}/>
+                })}</div>
+                <PaginationFooter currentPage={currentPage} baseUri={`/user/${username}/repositories`}/>
+            </div>)}
+
         </div>)
 }
 
