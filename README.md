@@ -37,6 +37,12 @@ npm run start
 
 This command will start the app in http://localhost:3000
 
+## Website hosting
+This web application is hosted in vercel.
+
+You can view live demo for this code here https://aquera.vercel.app/
+
+
 ## Technologies and Libraries used
 1. React
 2. Tailwind css
