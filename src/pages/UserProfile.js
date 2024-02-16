@@ -1,7 +1,8 @@
 import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import fetchUserProfile from "../api/fetchUserProfile";
-import ErrorComponent from "./ErrorComponent";
+import ErrorComponent from "../components/ErrorComponent";
+import Header from "../components/Header";
 
 const UserProfile = () => {
     const {username} = useParams();
@@ -23,8 +24,8 @@ const UserProfile = () => {
     }, [username]);
 
     return (<div>
+        <Header label={"User Profile"} />
         {error ? <ErrorComponent {...error}/> : <div>
-            Username
             <img src={user?.avatar_url} alt={user?.login} width={30}/>
             <h4>{user?.name}</h4>
             <p>{user?.bio}</p>

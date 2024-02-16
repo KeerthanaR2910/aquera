@@ -1,9 +1,12 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import fetchRepositories from "../api/fetchRepositories";
-import ErrorComponent from "./ErrorComponent";
+import ErrorComponent from "../components/ErrorComponent";
+import Repository from "../components/Repository";
+import Header from "../components/Header";
+import PaginationFooter from "../components/PaginationFooter";
 
-const RepositoryList = () => {
+const Repositories = () => {
     const {username} = useParams();
     const [repositories, setRepositories] = useState([]);
     const [error, setError] = useState();
@@ -31,15 +34,12 @@ const RepositoryList = () => {
 
     return (
         <div>
-            <h2>RepositoryList </h2>
-            {error ? <ErrorComponent {...error}/> : repositories.map((repository) => {
-                return (<div key={repository.id}>
-                    <p>{repository.name}</p>
-                    <p>{repository.description}</p>
-                    <p>Topics: {repository.topics?.join(', ') || 'None'}</p>
-                </div>)
-            })}
+            <Header label='RepositoryList'/>
+            {error ? <ErrorComponent {...error}/> : (<div className="flex flex-col gap-2 items-center"> {repositories.map((repository) => {
+                return <Repository key={repository.id} {...repository}/>
+            })}</div>)}
+            <PaginationFooter />
         </div>)
 }
 
-export default RepositoryList
+export default Repositories

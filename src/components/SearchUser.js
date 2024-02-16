@@ -16,9 +16,10 @@ const SearchUser = () => {
                 type="text"
                 placeholder="Search GitHub user..."
                 value={searchUsername}
+                className='appearance-none p-2 border-solid border-2 border-slate-500 mr-2 focus:border-slate-600 rounded-sm'
                 onChange={(e) => setSearchUsername(e.target.value)}
             />
-            <button onClick={() => handleSearch(searchUsername)}>Search</button>
+            <button onClick={() => handleSearch(searchUsername)} className='appearance-none bg-purple-400 p-2 rounded-lg'>Search</button>
         </div>
     )
 }

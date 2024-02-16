@@ -3,4 +3,6 @@ fileignoreconfig:
   checksum: 3ad54d2f1add807c15835ceaab70d320d515acadebc5bf6e6803f8edf96e68fa
 - filename: src/components/RepositoryList.js
   checksum: a3f1bf4edaaa10e3316d4a1fd91505c11fa1c47bcebdce3812df0b13131804c4
+- filename: src/components/SearchUser.js
+  checksum: 39750f55ef565eb18e8503bb5ea1f385bde43384502dcc432383e21f72464b63
 version: "1.0"
