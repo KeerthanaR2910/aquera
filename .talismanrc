@@ -1,4 +1,6 @@
 fileignoreconfig:
 - filename: package-lock.json
   checksum: 09ceefc02454d2cd33c67e154e107969443825d63b61aa7ff7e02c33910fe451
+- filename: src/components/RepositoryList.js
+  checksum: a11f94ae73fb2b6f775c22e2c2f8bfcc0f360b3f8e6028176a6a5a44213479ea
 version: "1.0"
