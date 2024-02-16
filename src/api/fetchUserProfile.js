@@ -1,11 +1,8 @@
 import {GITHUB_API_BASE_URL} from "../config";
+import axios from "axios";
 
 const fetchUserProfile = async (username) => {
-    const response = await fetch(`${GITHUB_API_BASE_URL}/users/${username}`);
-    if (!response.ok) {
-        throw new Error(`Error fetching user profile: ${response.statusText}`);
-    }
-    return await response.json();
+    return await axios.get(`${GITHUB_API_BASE_URL}/users/${username}`);
 }
 
 export default fetchUserProfile

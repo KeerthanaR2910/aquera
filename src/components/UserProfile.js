@@ -11,15 +11,16 @@ const UserProfile = () => {
 
     useEffect(() => {
         fetchUserProfile(username)
-            .then((data) => setUser(data))
+            .then(({data}) => {
+                setUser(data)
+            })
             .catch((error) => {
                 setError({
-                    message: 'Error occured while fetching user profile. Go back to the home page', redirectUri: '/'
+                    message: 'User Not Found or Error occured while fetching user profile. Go back to the home page', redirectUri: '/'
                 })
+                console.log(error)
             });
     }, [username]);
-
-    console.log(error)
 
     return (<div>
         {error ? <ErrorComponent {...error}/> : <div>

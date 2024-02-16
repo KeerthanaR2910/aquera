@@ -10,7 +10,7 @@ const RepositoryList = () => {
 
     useEffect(() => {
         fetchRepositories(username)
-            .then(data => {
+            .then(({data}) => {
                 if (data.length === 0) {
                     setError({
                         message: 'Page Not Found. Go back to the first page',
