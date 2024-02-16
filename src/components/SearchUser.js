@@ -1,15 +1,20 @@
-import React, {useState} from "react";
-import {useNavigate} from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {useLocation, useNavigate} from "react-router-dom";
 import Button from "./Button";
 
 const SearchUser = () => {
     const [searchUsername, setSearchUsername] = useState('');
     const navigate = useNavigate()
+    const {pathname} = useLocation();
 
     const handleSearch = (username) => {
         setSearchUsername(username);
         navigate(`/user/${username}`)
     };
+
+    useEffect(() => {
+        setSearchUsername('')
+    },[pathname])
 
     return (
         <div>

@@ -6,7 +6,7 @@ import SearchUser from "./components/SearchUser";
 
 function App() {
     return (
-        <div className="flex items-center m-4 h-screen flex-col gap-10 w-full">
+        <div className="flex items-center p-4 h-screen flex-col gap-10 w-full">
             <p className=' text-2xl font-bold'>GitHub Profile Viewer</p>
             <Router>
                 <SearchUser/>
