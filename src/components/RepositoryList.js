@@ -14,16 +14,17 @@ const RepositoryList = () => {
             .catch((error) => console.error('Error fetching repositories:', error));
     }, [username]);
 
-    return (<div>
-        <h2>RepositoryList </h2>
-        {repositories.map((repository) => {
-            return (<div key={repository.id}>
-                <p>{repository.name}</p>
-                <p>{repository.description}</p>
-                <p>Topics: {repository.topics?.join(', ') || 'None'}</p>
-            </div>)
-        })}
-    </div>)
+    return (
+        <div>
+            <h2>RepositoryList </h2>
+            {repositories.map((repository) => {
+                return (<div key={repository.id}>
+                    <p>{repository.name}</p>
+                    <p>{repository.description}</p>
+                    <p>Topics: {repository.topics?.join(', ') || 'None'}</p>
+                </div>)
+            })}
+        </div>)
 }
 
 export default RepositoryList
