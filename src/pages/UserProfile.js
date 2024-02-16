@@ -14,6 +14,9 @@ const UserProfile = () => {
         fetchUserProfile(username)
             .then(({data}) => {
                 setUser(data)
+                if(error){
+                    setError(undefined)
+                }
             })
             .catch((error) => {
                 setError({
@@ -22,6 +25,10 @@ const UserProfile = () => {
                 console.log(error)
             });
     }, [username]);
+
+    if (!user) {
+        return <div>Loading...</div>;
+    }
 
     return (<div>
         <Header label={"User Profile"} />
