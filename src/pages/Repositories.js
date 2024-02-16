@@ -6,6 +6,8 @@ import Repository from "../components/Repository";
 import Header from "../components/Header";
 import PaginationFooter from "../components/PaginationFooter";
 import {useCurrentPage} from "../utils/useCurrentPage";
+import Button from "../components/Button";
+import NavigationButton from "../components/NavigationButton";
 
 const Repositories = () => {
     const {username} = useParams();
@@ -51,7 +53,7 @@ const Repositories = () => {
                 <div className="flex flex-col gap-2 items-center"> {repositories.map((repository) => {
                     return <Repository key={repository.id} {...repository}/>
                 })}</div>
-                <PaginationFooter currentPage={currentPage} baseUri={`/user/${username}/repositories`}/>
+                <PaginationFooter currentPage={currentPage} baseUri={`/user/${username}`}/>
             </div>)}
 
         </div>)
